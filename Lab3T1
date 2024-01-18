@@ -1,0 +1,43 @@
+#lang racket
+
+(define (fib num)
+  (cond
+    [(or(equal? num 1 )(equal? num 0 )) num]
+    [else
+     num = (+ (fib (- num 1)) (fib (- num 2)))
+    ]
+  )
+)
+
+(define fibNum 13)
+
+(display "fibonacci(")
+(display fibNum)
+(display ") = ")
+(displayln (fib fibNum))
+
+(define (larger-rectangle w1 l1 w2 l2)
+  (define area1 (* w1 l1))
+  (define area2 (* w2 l2))
+  (cond
+    [(equal? area1 area2) 0]
+    [(< area1 area2) 1]
+    [else -1]
+    )
+ )
+
+(define w1 2)
+(define l1 21)
+(define w2 6)
+(define l2 7)
+
+(display "larger-rectangle(")
+(display w1)
+(display " ")
+(display l1)
+(display " ")
+(display w2)
+(display " ")
+(display l2)
+(display ") = ")
+(displayln (larger-rectangle w1 l1 w2 l2))
