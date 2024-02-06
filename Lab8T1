@@ -1,0 +1,14 @@
+#lang racket
+
+(define (pal str)
+  (cond
+    [(or (equal? (string-length str) 1) (equal? (string-length str) 0)) true]
+    [(equal? (string-ref str 0) (string-ref str (- (string-length str) 1)))
+     (set! str (substring str 1 (- (string-length str) 1)))
+     (pal str)
+    ]
+    [else false]
+  )
+)
+
+(displayln (pal "ab"))

@@ -1,0 +1,14 @@
+#lang racket
+
+(define (ceasar str val startPos)
+  (cond
+    [(equal? (string-length str) (+ startPos 1))
+     (list (integer->char (+ (char->integer (string-ref str startPos)) val)))
+    ]
+    [else
+     (append (list (integer->char (+ (char->integer (string-ref str startPos)) val))) (ceasar str val (+ startPos 1)))
+    ]
+  )
+)
+
+(displayln (list->string (ceasar "123456" -4 0)))
